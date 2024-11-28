@@ -15,7 +15,7 @@ describe("is.localdomain", function()
     assert.is_true(is.localdomain(domain('my.local')))
   end)
   it("negative", function()
---    assert.is_nil(is.localdomain('site.com'))
+    assert.is_nil(is.localdomain('site.com'))
     assert.is_nil(is.localdomain(domain('site.com')))
 
     assert.is_nil(is.localdomain('8.8.8.8'))

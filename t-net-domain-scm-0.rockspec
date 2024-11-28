@@ -20,7 +20,8 @@ t.net.domain: domain object for `t` lib
 dependencies = {
   "lua >= 5.1",
   "t",
-  "t-net-tld"
+  "t-net-tld",
+  "t-net-ip",
 }
 
 test_dependencies = {
