@@ -6,13 +6,13 @@ local match=t.match
 return setmetatable({},{
 __call=function(self, it)
   if type(it)=='table' and getmetatable(it)==getmetatable(self) then return it end
-  it=match.domain(it)
-  if type(it)~='string' or #it==0 then return end
+  it=match.domain(tostring(it))
+  if type(it)~='string' or #it==0 then return nil end
   local x=tld(it)
   local rv=it:lower():split('.')
-  if type(rv)~='table' then return end
+  if type(rv)~='table' then return nil end
   if type(x)~='table' then return #rv>1 and setmetatable(table.sub(rv, -2), getmetatable(self)) or nil end
-  if #rv==#x then return end
+  if #rv==#x then return nil end
   while #rv>#x+1 do table.remove(rv, 1) end
   setmetatable(rv, getmetatable(self))
   if type(rv[1]:match('[%w_]+'))=='string' then
